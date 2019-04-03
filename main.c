@@ -1,13 +1,21 @@
 #include <stdio.h>
 #include <string.h>
+
+#define MAX(x,y) ((x)>(y) ? (x) : (y))
+
 int main(int argc, char *argv[])
 {
 
 	FILE *fp = NULL;
 	char buff[255];
 	fp = fopen("./config.ini", "r");
-#ifndef DDD
-	printf("未找到 DDD\n");
+#ifdef DEBUG
+	printf("已开启 -DDEBUG\n");
+	printf("File :%s\n", __FILE__ );
+	printf("Date :%s\n", __DATE__ );
+	printf("Time :%s\n", __TIME__ );
+	printf("Line :%d\n", __LINE__ );
+	printf("ANSI :%d\n\n", __STDC__ );
 #endif
 #if 0
 	int rst = -1;
@@ -48,13 +56,16 @@ int main(int argc, char *argv[])
 
 
 #if 1
+	int i = 0;
 	while (fscanf(fp, "%s", buff) == 1) {
-		printf("1: %s\n", buff);
+		i++;
+		printf("%d: %s\n",i, buff);
 
 	}
 #endif
 	fclose(fp);
 
 
+	printf("Max between 20 and 10 is %d\n", MAX(10, 20));
 	return 0;
 }

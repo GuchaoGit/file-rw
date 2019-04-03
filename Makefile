@@ -3,9 +3,9 @@ target = fileread
 all:$(target)
 
 $(target):main.o
-	$(cc) $^ -o $@
+	$(cc) $^ -o $@ 
 main.o:main.c
-	$(cc) -c $^ -Wall
+	$(cc) -c $^ -Wall -DDEBUG
 
 clean:
 	rm -rf *.o $(target) *~ fileread.tar.gz install/*
