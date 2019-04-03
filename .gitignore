@@ -1,0 +1,6 @@
+*.d
+*.o
+fileread
+*~
+fileread.tar.gz
+/install/*
