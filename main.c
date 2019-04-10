@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "custom_math.h"
+#include "utils.h"
 #define MAX(x,y) ((x)>(y) ? (x) : (y))
 
 int main(int argc, char *argv[])
@@ -68,5 +69,13 @@ int main(int argc, char *argv[])
 
 	printf("Max between 20 and 10 is %d\n", MAX(10, 20));
 	printf("Average of 5, 10, 15 = %f\n", average(3, 5,10,15));
+
+	char *sys_line="ls -lhi";
+	char *result =NULL;
+	get_command_result(sys_line,&result);
+
+	printf("%s :\nresult length = %ld\n%s\n",sys_line,strlen(result),result);
+
+	free(result);
 	return 0;
 }
