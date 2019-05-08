@@ -19,43 +19,6 @@ int main(int argc, char *argv[])
 	printf("Line :%d\n", __LINE__);
 	printf("ANSI :%d\n\n", __STDC__);
 #endif
-#if 0
-	int rst = -1;
-	rst = fscanf(fp, "%s", buff);
-	printf("read content is :%s\nsize is:%ld\nrst is:%d\n", buff,
-	       strlen(buff), rst);
-
-	rst = -1;
-	rst = fscanf(fp, "%s", buff);
-	printf("read content is :%s\nsize is:%ld\nrst is:%d\n", buff,
-	       strlen(buff), rst);
-
-
-	rst = -1;
-	rst = fscanf(fp, "%s", buff);
-	printf("read content is :%s\nsize is:%ld\nrst is:%d\n", buff,
-	       strlen(buff), rst);
-
-
-	rst = -1;
-	rst = fscanf(fp, "%s", buff);
-	printf("read content is :%s\nsize is:%ld\nrst is:%d\n", buff,
-	       strlen(buff), rst);
-
-
-	rst = -1;
-	rst = fscanf(fp, "%s", buff);
-	printf("read content is :%s\nsize is:%ld\nrst is:%d\n", buff,
-	       strlen(buff), rst);
-
-
-	rst = -1;
-	rst = fscanf(fp, "%s", buff);
-	printf("read content is :%s\nsize is:%ld\nrst is:%d\n", buff,
-	       strlen(buff), rst);
-
-#endif
-
 
 #if 1
 	int i = 0;
@@ -71,6 +34,7 @@ int main(int argc, char *argv[])
 	printf("Max between 20 and 10 is %d\n", MAX(10, 20));
 	printf("Average of 5, 10, 15 = %f\n", average(3, 5, 10, 15));
 
+	printf("********************************************\n");
 	char *sys_line = "ls -lhi";
 	char *result = NULL;
 	get_command_result(sys_line, &result);
@@ -103,7 +67,7 @@ int main(int argc, char *argv[])
 
 	/* 数组中插入对象和值 */
 	{
-		cJSON_AddItemToArray(brother, cJSON_CreateString("Lea"));
+		cJSON_AddItemToArray(brother, cJSON_CreateString("Lea/s"));
 		cJSON_AddItemToArray(brother, cJSON_CreateString("Boo"));
 	}
 
@@ -119,6 +83,13 @@ int main(int argc, char *argv[])
 	 *           */
 	cJSON_Delete(root);
 
+	printf("********************************************\n");
+
+	char *mac=NULL;
+	get_mac("ens33",&mac);
+	printf("ens33 mac is:%s\n",mac);
+	free(mac);
+	printf("********************************************\n");
 
 	return 0;
 }
